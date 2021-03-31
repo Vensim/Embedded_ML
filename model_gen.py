@@ -2,7 +2,7 @@ import math
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers
-
+from tinymlgen import port
 
 def get_model():
     SAMPLES = 1000
@@ -44,3 +44,8 @@ test_model(model)
 
 # Save the model to disk
 open("sine_model_quantized.tflite", "wb").write(tflite_model)
+
+# Port to C
+c_code = port(model, pretty_print = True)
+c_file = open("sine_model.h", "w")
+c_file.write(c_code)

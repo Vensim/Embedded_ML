@@ -8,18 +8,15 @@ conda activate EmbeddedML_env
 pip install requirements.txt
 ```
 
-Bash requirements:
 
-xxd - to create hexdump of ml model.
 
 To generate model : 
 ```bash
 python model_gen.py
 ```
-Conversion to hex file
-```bash
-xxd -i sine_model_quantized.tflite > sine_model.cc
-```
+This script will produce 2 files, sine_model_quantized.tflite  and  sine_model.h.
+
+sine_model.h to be used with Arduino IDE as header file. 
 
 To compile using Arduino IDE
 Library : EloquentTinyML

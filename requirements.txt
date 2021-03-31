@@ -11,6 +11,7 @@ google-auth-oauthlib==0.4.4
 google-pasta==0.2.0
 grpcio==1.32.0
 h5py==2.10.0
+hexdump==3.3
 idna==2.10
 Keras-Preprocessing==1.1.2
 Markdown==3.3.4
@@ -29,6 +30,7 @@ tensorboard-plugin-wit==1.8.0
 tensorflow==2.4.1
 tensorflow-estimator==2.4.0
 termcolor==1.1.0
+tinymlgen==0.2
 typing-extensions==3.7.4.3
 urllib3==1.26.4
 virtualenv==20.4.3
