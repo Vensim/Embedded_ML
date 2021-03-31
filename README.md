@@ -10,6 +10,7 @@ tensorflow
 tinyML
 
 Bash requirements:
+
 xxd - to create hexdump of ml model.
 
 To generate model : 
