@@ -46,6 +46,6 @@ test_model(model)
 open("sine_model_quantized.tflite", "wb").write(tflite_model)
 
 # Port to C
-c_code = port(model, pretty_print = True)
+c_code = port(model, pretty_print = True, optimize=False)
 c_file = open("sine_model.h", "w")
 c_file.write(c_code)

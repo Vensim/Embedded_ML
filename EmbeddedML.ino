@@ -1,4 +1,4 @@
-#include "EloquentTinyML.h"
+#include <EloquentTinyML.h>
 // sine_model.h contains the array you exported from the previous step
 // with either xxd or tinymlgen
 #include "sine_model.h"
@@ -7,13 +7,13 @@
 #define NUMBER_OF_OUTPUTS 1
 // in future projects you may need to tweak this value.
 // it's a trial and error process
-#define TENSOR_ARENA_SIZE 2*1024
+#define TENSOR_ARENA_SIZE 5*1024
 
 Eloquent::TinyML::TfLite<NUMBER_OF_INPUTS, NUMBER_OF_OUTPUTS, TENSOR_ARENA_SIZE> ml;
 
 void setup() {
     Serial.begin(115200);
-    ml.begin(sine_model);
+    ml.begin(model_data);
 }
 
 void loop() {
