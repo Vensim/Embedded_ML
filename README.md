@@ -1,9 +1,12 @@
 # Embedded_ML
-Python requirements:
+Optional: 
+Initialise virtual python env. 
+```bash
+conda create -n EmbeddedML_env python=3.8.5
+conda activate EmbeddedML_env
+pip install requirements.txt
+```
 
-CMAKE version => 3.11
-tensorflow
-tinyML
 
 To generate model : 
 ```bash
