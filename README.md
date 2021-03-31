@@ -2,7 +2,11 @@
 Python requirements:
 
 CMAKE version => 3.11
+
+
 tensorflow
+
+
 tinyML
 
 Bash requirements:
