@@ -1,6 +1,6 @@
 #include <EloquentTinyML.h>
 // sine_model.h contains the array you exported from the previous step
-// with either xxd or tinymlgen
+// withhttps://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json either xxd or tinymlgen
 #include "sine_model.h"
 
 #define NUMBER_OF_INPUTS 1
