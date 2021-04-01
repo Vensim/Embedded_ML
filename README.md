@@ -24,3 +24,8 @@ Library : EloquentTinyML
 
 Example output. Predicting sine value with x input.
 ![image](https://user-images.githubusercontent.com/39244927/113181209-6d5cd380-9249-11eb-8cb8-d765fd49bd2b.png)
+
+
+
+
+Heart sensor schematic. ![image](Datasheets/Schematic_Heartmonitor.png)
