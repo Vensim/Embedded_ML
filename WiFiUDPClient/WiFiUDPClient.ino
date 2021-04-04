@@ -31,14 +31,15 @@ void setup(){
 
 void loop(){
   //only send data when connected
+  
   if(connected){
     //Send a packet
     udp.beginPacket(udpAddress,udpPort);
-    udp.printf("Seconds since boot: %lu", millis()/1000);
+    udp.printf("%lu", analogRead(33));
     udp.endPacket();
   }
   //Wait for 1 second
-  delay(1000);
+  delay(25);
 }
 
 void connectToWiFi(const char * ssid, const char * pwd){
