@@ -9,6 +9,11 @@ pip install requirements.txt
 ```
 
 
+Initialise esp32. Downloads esptool, micropython firmware and flashes. 
+```bash
+python esp32_init.sh
+```
+
 
 To generate model : 
 ```bash

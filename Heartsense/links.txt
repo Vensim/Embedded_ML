@@ -1,0 +1,5 @@
+https://ubidots.com/blog/how-to-build-ecg-system-by-using-ad8232-esp32-and-ubidot/  - MQTT
+
+https://www.circuitschools.com/ecg-monitoring-system-using-ad8232-with-arduino-or-esp32-iot-based/
+
+
