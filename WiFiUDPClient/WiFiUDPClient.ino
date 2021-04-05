@@ -39,7 +39,7 @@ void loop(){
     udp.endPacket();
   }
   //Wait for 1 second
-  delay(25);
+  delay(10);
 }
 
 void connectToWiFi(const char * ssid, const char * pwd){
