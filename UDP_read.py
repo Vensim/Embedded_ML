@@ -11,7 +11,6 @@ sock = socket.socket(socket.AF_INET, # Internet
 sock.bind((UDP_IP, UDP_PORT))
 
 timeout = time.time() + 10/1
-sample = []
 
 
 while True:
@@ -20,13 +19,7 @@ while True:
 		break
 	data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
 	print("received message: %s" % data)
-	sample.append(int(data))
 	time.sleep(0.025)
 	print(data)
 
 
-with open('AD8232_data.csv', mode='w') as data_file:
-		writer = csv.writer(data_file, delimiter=',')
-		writer.writerow(sample)
-		data_file.close()
-		

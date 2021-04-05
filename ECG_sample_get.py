@@ -27,7 +27,7 @@ while True:
 	print(type(sample))
 	test += 1
 	print(test)
-	time.sleep(0.001)
+	time.sleep(0.0001)
 
 
 
