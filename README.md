@@ -34,3 +34,6 @@ Example output. Predicting sine value with x input.
 
 
 Heart sensor schematic. ![image](Datasheets/Schematic_Heartmonitor.png)
+
+Current heart sample output
+![img](ECG_sample_good.png)
