@@ -5,7 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-UDP_IP = "192.168.0.19"
+UDP_IP = "UDPAdress"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, # Internet
