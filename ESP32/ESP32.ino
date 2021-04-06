@@ -1,14 +1,19 @@
-/*
- *  This sketch sends random data over udp on a ESP32 device
- *
- */
-#include <WiFi.h>
 
+#include <EloquentTinyML.h>
+#include <WiFi.h>
 #include <WiFiUdp.h>
 
+#include "ECG_ML_Model.h"
+
+#define NUMBER_OF_INPUTS 1
+#define NUMBER_OF_OUTPUTS 1
+#define TENSOR_ARENA_SIZE 2*1024
+
+Eloquent::TinyML::TfLite<NUMBER_OF_INPUTS, NUMBER_OF_OUTPUTS, TENSOR_ARENA_SIZE> ml;
+
 // WiFi network name and password:
-const char * networkName = "ESSID";
-const char * networkPswd = "PASSWORD";
+const char * networkName = "VM7528515";
+const char * networkPswd = "Sg6phqthjnhc";
 
 //IP address to send udp data to:
 // either use the ip address of the server or 
@@ -32,6 +37,9 @@ void setup() {
   pinMode(35, INPUT); // Setup for leads off detection LO -
   //Connect to the WiFi network
   connectToWiFi(networkName, networkPswd);
+  delay(2000);
+  ml.begin(model_data);
+  delay(2000);
 }
 
 void loop() {
@@ -104,9 +112,18 @@ void loop() {
 
     case 'm': //Machine Learning mode
       Serial.println("ML Mode");
-      udp.beginPacket(udp.remoteIP(), udp.remotePort());
-      udp.printf("ML Mode");
-      udp.endPacket();
+    float y = analogRead(33);
+    float x = random(1000);
+    float input[1] = { x };
+    float predicted = ml.predict(input);
+
+    Serial.print("x(");
+    Serial.print(x);
+    Serial.print(") = ");
+    Serial.print(y);
+    Serial.print("\t predicted: ");
+    Serial.println(predicted);
+    delay(1000);
       break;
     }
 
