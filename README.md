@@ -77,6 +77,9 @@ Recompile the ESP32 with the new header file and activate Machine Learning mode
 ```bash
 python UDP_init_ML_mode.py
 ```
+Expected output
+![image](https://user-images.githubusercontent.com/39244927/113791372-60554e00-973b-11eb-96e5-5e616ea720b7.png)
+
 
 Library : EloquentTinyML
 
