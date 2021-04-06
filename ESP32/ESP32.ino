@@ -6,17 +6,20 @@
 #include <WiFiUdp.h>
 
 // WiFi network name and password:
-const char * networkName = "ESSID";
-const char * networkPswd = "PASSWORD";
+const char * networkName = "VM7528515";
+const char * networkPswd = "Sg6phqthjnhc";
 
 //IP address to send UDP data to:
 // either use the ip address of the server or 
 // a network broadcast address
-const char * udpAddress = "UDPAdress";
+const char * udpAddress = "192.168.0.19";
 const int udpPort = 5005;
 
 //Are we currently connected?
 boolean connected = false;
+
+
+
 
 //The udp library class
 WiFiUDP udp;
@@ -25,6 +28,8 @@ void setup(){
   // Initilize hardware serial:
   Serial.begin(115200);
   
+pinMode(32, INPUT); // Setup for leads off detection LO +
+pinMode(35, INPUT); // Setup for leads off detection LO -
   //Connect to the WiFi network
   connectToWiFi(networkName, networkPswd);
 }
@@ -34,12 +39,19 @@ void loop(){
   
   if(connected){
     //Send a packet
+    
+  if ((digitalRead(32) == 1) || (digitalRead(35) == 1)) {
+    Serial.println('!');
+  } else {
+
+    
     udp.beginPacket(udpAddress,udpPort);
     udp.printf("%lu", analogRead(33));
     udp.endPacket();
   }
+  }
   //Wait for 1 second
-  delay(10);
+  delay(1);
 }
 
 void connectToWiFi(const char * ssid, const char * pwd){
