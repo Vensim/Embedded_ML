@@ -37,24 +37,47 @@ Place ECG electrodes.
 ![ECG Placement](https://user-images.githubusercontent.com/39244927/113597321-71b33300-9633-11eb-9fbe-8872a5d8d0fa.png) Image from ConnectMed.com
 
 
-Gather a sample of data with python script
+Test the output of the ECG sensor in a serial monitor.
 ```bash
-python ECG_sample_get.py
+python UDP_init_test_mode.py
+```
+
+Gather sample data. Enable sampling server then initialise sampling.
+```bash
+python ECG_sampling_server.py
+python UDP_init_sample_mode.py
 ```
 Example output
 
-![image](https://user-images.githubusercontent.com/39244927/113598996-e38c7c00-9635-11eb-93a2-0f7b86773d94.png)
+![img](ECG_sample_good.png)
 
 
-To generate model : 
+
+With sampled data, perform feature extraction
 ```bash
-python model_gen.py
+python ECG_feature_extraction.py
+python Visualise_ECG_features.py # Optional, to visualise the output.
 ```
-This script will produce 2 files, sine_model_quantized.tflite  and  sine_model.h.
 
-sine_model.h to be used with Arduino IDE as header file. 
+Feature extraction example output.
 
-To compile using Arduino IDE
+![img](ECG_feature_extraction_current.png)
+
+
+
+To generate model with featured data 
+```bash
+python ECG_ML_Modelgen.py
+```
+This script will produce 2 files, ECG_model_quantized.tflite  and  ECG_ML_Model.h.
+
+ECG_ML_Model.h to be used with Arduino IDE as header file.
+
+Recompile the ESP32 with the new header file and activate Machine Learning mode
+```bash
+python UDP_init_ML_mode.py
+```
+
 Library : EloquentTinyML
 
 
@@ -69,10 +92,4 @@ Heart sensor schematic.
 
 ![image](Datasheets/Schematic_Heartmonitor.png)
 
-Current heart sample output
 
-![img](ECG_sample_good.png)
-
-Current feature extraction output
-
-![img](ECG_feature_extraction_current.png)
