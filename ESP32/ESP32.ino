@@ -1,5 +1,5 @@
 /*
- *  This sketch sends random data over UDP on a ESP32 device
+ *  This sketch sends random data over udp on a ESP32 device
  *
  */
 #include <WiFi.h>
@@ -7,10 +7,10 @@
 #include <WiFiUdp.h>
 
 // WiFi network name and password:
-const char * networkName = "VM7528515";
-const char * networkPswd = "Sg6phqthjnhc";
+const char * networkName = "ESSID";
+const char * networkPswd = "PASSWORD";
 
-//IP address to send UDP data to:
+//IP address to send udp data to:
 // either use the ip address of the server or 
 // a network broadcast address
 const char * udpAddress = "192.168.0.19";
@@ -18,6 +18,9 @@ const int udpPort = 5005;
 
 //Are we currently connected?
 boolean connected = false;
+
+char packetBuffer[255]; //buffer to hold incoming packet
+char ReplyBuffer[] = "acknowledged"; // a string to send back
 
 WiFiUDP udp;
 
@@ -33,24 +36,81 @@ void setup() {
 
 void loop() {
 
+  // if there's data available, read a packet
 
+  int packetSize = udp.parsePacket();
 
+  if (packetSize) {
 
-//only send data when connected
-  if (connected) {
-    //Send a packet
+    Serial.print("Received packet of size ");
+    Serial.println(packetSize);
+    Serial.print("From ");
+    IPAddress remoteIp = udp.remoteIP();
+    Serial.print(remoteIp);
+    Serial.print(", port ");
+    Serial.println(udp.remotePort());
 
-    if ((digitalRead(32) == 1) || (digitalRead(35) == 1)) {
-      Serial.println('!');
-    } else {
+    // read the packet into packetBufffer
+    int len = udp.read(packetBuffer, 255);
+    if (len > 0) {
+      packetBuffer[len] = 0;
 
-      udp.beginPacket(udpAddress, udpPort);
-      udp.printf("%lu", analogRead(33));
-      udp.endPacket();
     }
+
+    Serial.println("Contents:");
+    Serial.println(packetBuffer);
+
+    // send a reply, to the IP address and port that sent us the packet we received
+
+    udp.beginPacket(udp.remoteIP(), udp.remotePort());
+    udp.printf("%lu", ReplyBuffer);
+    udp.endPacket();
+
+    char Setting = * packetBuffer;
+
+    switch (Setting) {
+
+    case 't': //Test mode, serial mode
+
+      for (int i = 0; i < 10000; i++) {
+        if ((digitalRead(32) == 1) || (digitalRead(35) == 1)) {
+          Serial.println('!');
+        } else {
+
+          Serial.println(analogRead(33));
+          delay(1);
+        }
+      }
+      break;
+
+    case 's': //Sample mode, sends over UDP. Stores. 
+    
+      Serial.println("Sample mode");
+      if (connected) {
+        //Send a packet
+        for (int i = 0; i < 10000; i++) {
+          if ((digitalRead(32) == 1) || (digitalRead(35) == 1)) {
+            Serial.println('!');
+          } else {
+
+            udp.beginPacket(udpAddress, udpPort);
+            udp.printf("%lu", analogRead(33));
+            udp.endPacket();
+            delay(1);
+          }
+        }
+      }
+      break;
+
+    case 'm': //Machine Learning mode
+      Serial.println("ML Mode");
+      udp.beginPacket(udp.remoteIP(), udp.remotePort());
+      udp.printf("ML Mode");
+      udp.endPacket();
+      break;
+    }
+
   }
-  //Wait for 1 second
-  delay(1);
 }
 
 void connectToWiFi(const char * ssid,
@@ -75,7 +135,7 @@ void WiFiEvent(WiFiEvent_t event) {
     //When connected set 
     Serial.print("WiFi connected! IP address: ");
     Serial.println(WiFi.localIP());
-    //initializes the UDP state
+    //initializes the udp state
     //This initializes the transfer buffer
     udp.begin(WiFi.localIP(), udpPort);
     connected = true;
