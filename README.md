@@ -72,3 +72,7 @@ Heart sensor schematic.
 Current heart sample output
 
 ![img](ECG_sample_good.png)
+
+Current feature extraction output
+
+![img](ECG_feature_extraction_current.png)
