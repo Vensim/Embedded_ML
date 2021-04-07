@@ -12,8 +12,8 @@
 Eloquent::TinyML::TfLite<NUMBER_OF_INPUTS, NUMBER_OF_OUTPUTS, TENSOR_ARENA_SIZE> ml;
 
 // WiFi network name and password:
-const char * networkName = "VM7528515";
-const char * networkPswd = "Sg6phqthjnhc";
+const char * networkName = "ESSID";
+const char * networkPswd = "PASSWORD";
 
 //IP address to send udp data to:
 // either use the ip address of the server or 

@@ -1,6 +1,6 @@
 import socket
 
-UDP_IP_CLIENT = "192.168.0.26"
+UDP_IP_CLIENT = "UDPAddress"
 UDP_PORT = 5005
 MESSAGE = "s"
 client = socket.socket(socket.AF_INET, # Internet
