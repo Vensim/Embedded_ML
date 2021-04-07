@@ -5,12 +5,13 @@
 > Objective of this repository is to acquire experience in developing products and to get familiar with new technologies. Secondary objective is to create a framework of sensor to machine learning starting with raw electrocardiogram data with the intent of quantize how deviated the heart wave is from sample data and in addition to predict future heart states with different activities. In the future different sensors could be applied such as electromyography sensors.
 
 
-![ECG Features](ECG_feature_extraction_current.png]
+![ECG Features](ECG_feature_extraction_current.png)
 
 ![ML Prediction](https://user-images.githubusercontent.com/39244927/113791372-60554e00-973b-11eb-96e5-5e616ea720b7.png)
 
 
-##Current progress
+<img src="https://user-images.githubusercontent.com/39244927/113945275-edf97200-97fd-11eb-8a9f-ba0aee1ba3b5.png" width="300" height="400">
+## Current progress
 
 Goal | Progress
 ------------ | -------------
@@ -20,6 +21,7 @@ ESP UDP data transmission | Y
 Feature extraction | Basic
 Machine Learning model | In progress
 ESP Prediction | In progress
+
 
 Notes :
 Analog input produces 50~ Hertz noise, research into implementing Low-pass filter
@@ -52,7 +54,9 @@ Install the ESP32 arduino program with new initialised values.
 
 
 Place ECG electrodes.
-![ECG Placement](https://user-images.githubusercontent.com/39244927/113597321-71b33300-9633-11eb-9fbe-8872a5d8d0fa.png) Image from ConnectMed.com
+
+Image from ConnectMed.com
+<img src="https://user-images.githubusercontent.com/39244927/113597321-71b33300-9633-11eb-9fbe-8872a5d8d0fa.png" width="500" height="500">
 
 
 Test the output of the ECG sensor in a serial monitor.
