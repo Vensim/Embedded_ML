@@ -5,7 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-UDP_IP = "192.168.0.19"
+UDP_IP = "UDPAddress"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, # Internet
@@ -24,7 +24,6 @@ while True:
 	print("received message: %s" % data)
 	sample.append(int(data))
 	print(data)
-	print(type(sample))
 	test += 1
 	print(test)
 

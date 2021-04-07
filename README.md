@@ -1,4 +1,33 @@
-# Embedded_ML
+# Embedded ML for ECG applications
+
+## Introduction
+
+> Objective of this repository is to acquire experience in developing products and to get familiar with new technologies. Secondary objective is to create a framework of sensor to machine learning starting with raw electrocardiogram data with the intent of quantize how deviated the heart wave is from sample data and in addition to predict future heart states with different activities. In the future different sensors could be applied such as electromyography sensors.
+
+
+![ECG Features](ECG_feature_extraction_current.png]
+
+![ML Prediction](https://user-images.githubusercontent.com/39244927/113791372-60554e00-973b-11eb-96e5-5e616ea720b7.png)
+
+
+##Current progress
+
+Goal | Progress
+------------ | -------------
+ECG to ESP data aquisition | Y
+ESP UDP control | Y
+ESP UDP data transmission | Y
+Feature extraction | Basic
+Machine Learning model | In progress
+ESP Prediction | In progress
+
+Notes :
+Analog input produces 50~ Hertz noise, research into implementing Low-pass filter
+Implement windowing to individual heart pulses for additional feature extraction
+
+
+##Installation
+
 Optional: 
 Initialise virtual python env.
  
@@ -8,29 +37,18 @@ conda activate EmbeddedML_env
 pip install requirements.txt
 ```
 
-#TBD - Initialise system environment variables over a bash script.
 
-Initialise data transmisison : 
+Initialise system variables with bash script. This will give prompt for ESSID, Password and UDP IP configurations.
 ```bash
-ifconfig
+chmod +x env_init.sh
+./env_init.sh
 ```
+Or edit the script files and the ESP32.ino file manually.
+
 Will output network interface configuration. Use the ip the python scripts will be run off.
 
-![image](https://user-images.githubusercontent.com/39244927/113598037-75938500-9634-11eb-8b80-bf54e8dd47ee.png)
 
-In this case, the UDP server going to be run off is 192.168.0.19
-
-
-Using Arduino IDE, edit the right values of WifiUDPClient.ino to connect to wifi and input own IP.
-
-![image](https://user-images.githubusercontent.com/39244927/113598676-66f99d80-9635-11eb-9ce7-0216922b556c.png)
-
-Install ESP32 arduino program 
-
-
-Apply same changes in ECG_sample_get.py
-
-![image](https://user-images.githubusercontent.com/39244927/113598824-a1fbd100-9635-11eb-9b4a-c4c4651132dc.png)
+Install the ESP32 arduino program with new initialised values. 
 
 
 Place ECG electrodes.
@@ -79,15 +97,6 @@ python UDP_init_ML_mode.py
 ```
 Expected output
 ![image](https://user-images.githubusercontent.com/39244927/113791372-60554e00-973b-11eb-96e5-5e616ea720b7.png)
-
-
-Library : EloquentTinyML
-
-
-Example output. Predicting sine value with x input.
-
-![image](https://user-images.githubusercontent.com/39244927/113181209-6d5cd380-9249-11eb-8cb8-d765fd49bd2b.png)
-
 
 
 

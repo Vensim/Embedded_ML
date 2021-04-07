@@ -18,7 +18,7 @@ const char * networkPswd = "PASSWORD";
 //IP address to send udp data to:
 // either use the ip address of the server or 
 // a network broadcast address
-const char * udpAddress = "192.168.0.19";
+const char * udpAddress = "UDPAddress";
 const int udpPort = 5005;
 
 //Are we currently connected?
@@ -33,8 +33,8 @@ void setup() {
   // Initilize hardware serial:
   Serial.begin(115200);
 
-  pinMode(32, INPUT); // Setup for leads off detection LO +
-  pinMode(35, INPUT); // Setup for leads off detection LO -
+  pinMode(12, INPUT); // Setup for leads off detection LO +
+  pinMode(13, INPUT); // Setup for leads off detection LO -
   //Connect to the WiFi network
   connectToWiFi(networkName, networkPswd);
   delay(2000);
@@ -102,7 +102,7 @@ void loop() {
           } else {
 
             udp.beginPacket(udpAddress, udpPort);
-            udp.printf("%lu", analogRead(33));
+            udp.printf("%lu", analogRead(2));
             udp.endPacket();
             delay(1);
           }

@@ -49,9 +49,9 @@ tflite_model = converter.convert()
 test_model(model)
 
 # Save the model to disk
-open("/ESP32/ECG_ML_model_quantized.tflite", "wb").write(tflite_model)
+open("./ESP32/ECG_ML_model_quantized.tflite", "wb").write(tflite_model)
 
 # Port to C
 c_code = port(model, pretty_print = True, optimize=False)
-c_file = open("/ESP32/ECG_ML_Model.h", "w")
+c_file = open("./ESP32/ECG_ML_Model.h", "w")
 c_file.write(c_code)
