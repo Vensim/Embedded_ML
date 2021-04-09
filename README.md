@@ -24,11 +24,13 @@ ESP Prediction | In progress
 
 
 Notes :
+
 Analog input produces 50~ Hertz noise, research into implementing Low-pass filter
+
 Implement windowing to individual heart pulses for additional feature extraction
 
 
-##Installation
+## Installation
 
 Optional: 
 Initialise virtual python env.
