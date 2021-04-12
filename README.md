@@ -22,12 +22,11 @@ Feature extraction | Basic
 Machine Learning model | In progress
 ESP Prediction | In progress
 
-
-Notes :
-
 Analog input produces 50~ Hertz noise, research into implementing Low-pass filter
 
 Implement windowing to individual heart pulses for additional feature extraction
+
+Find way to change Machine Learning model, the hex array, without recompiling whole program. 
 
 
 ## Installation
