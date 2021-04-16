@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -16,7 +17,11 @@ N = s.size
 # 1/T = frequency
 f = np.linspace(0, 1 / T, N)
 
-plt.ylabel("Amplitude")
-plt.xlabel("Frequency [Hz]")
-plt.bar(f[:N // 2], np.abs(fft)[:N // 2] * 1 / N, width=1.5)  # 1 / N is a normalization factor
+fig, Fourier = plt.subplots()
+Fourier.set(xlabel='Frequency[Hz]', ylabel='Amplitude',
+       title='Place holder fourier transform')
+
+Fourier.bar(f[:N // 2], np.abs(fft)[:N // 2] * 1 / N, width=1.5)  # 1 / N is a normalization factor
+
+fig.savefig("Fourier_output.png")
 plt.show()

@@ -7,7 +7,11 @@
 
 ![ECG Features](ECG_feature_extraction_current.png)
 
+![Fourier](Fourier_output.png)
+
 ![ML Prediction](https://user-images.githubusercontent.com/39244927/113791372-60554e00-973b-11eb-96e5-5e616ea720b7.png)
+
+
 
 
 <img src="https://user-images.githubusercontent.com/39244927/113945275-edf97200-97fd-11eb-8a9f-ba0aee1ba3b5.png" width="300" height="400">
