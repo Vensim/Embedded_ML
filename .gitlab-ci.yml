@@ -27,8 +27,11 @@ run:
         - cd ~/esp/esp-idf
         - chmod +x export.sh
         - . ./export.sh
+        - cd ~
+        - ls
+        - cd Embedded_ML
         - cd ~/Embedded_ML
         - idf.py build
         - cd ~
-        - ./flash.sh EmbeddedML/build/emulation.bin
+        - ./flash.sh Embedded_ML/build/emulation.bin
         - qemu-system-xtensa -nographic -M esp32 -m 4 -drive file=flash.bin,if=mtd,format=raw -nic user,model=open_eth,hostfwd=tcp::80-:80 -s
