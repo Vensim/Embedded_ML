@@ -1,7 +1,7 @@
 image: mluis/qemu-esp32
 
-before_script:
-    - git clone https://gitlab.com/Sesven/Embedded_ML.git
+#before_script:
+#    - git clone https://gitlab.com/Sesven/Embedded_ML.git
 
 stages:
     - test
@@ -12,7 +12,6 @@ test:
         - emulator
     stage: test
     script:
-        - cd Embedded_ML
         - ls
         - echo "Success!"
 
@@ -23,6 +22,7 @@ run:
         - test
     stage: run
     script:
+        - cd ~
         - git clone https://gitlab.com/Sesven/Embedded_ML.git
         - echo "Compiling esp32 binary"
         - cd ~/esp/esp-idf
