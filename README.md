@@ -1,5 +1,5 @@
 # Embedded ML for ECG applications
-
+[![pipeline status](https://gitlab.com/Sesven/Embedded_ML/badges/main/pipeline.svg)](https://gitlab.com/Sesven/Embedded_ML/-/commits/main)
 ## Introduction
 
 > Objective of this repository is to acquire experience in developing products and to get familiar with new technologies. Secondary objective is to create a framework of sensor to machine learning starting with raw electrocardiogram data with the intent of quantize how deviated the heart wave is from sample data and in addition to predict future heart states with different activities. In the future different sensors could be applied such as electromyography sensors.
