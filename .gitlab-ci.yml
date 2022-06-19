@@ -2,6 +2,7 @@ image: mluis/qemu-esp32
 
 stages:
     - test
+    - run
 
 test:
     tags:
@@ -9,3 +10,16 @@ test:
     stage: test
     script:
         - echo "Success!"
+
+run:
+    tags:
+        - emulator
+    needs:
+        - test
+    stage: run
+    script:
+        - echo "Compiling esp32 binary"
+        - idf
+        - cd program
+        - idf.py build
+        - qemu-system-xtensa -nographic -M esp32 -m 4 -drive file=flash.bin,if=mtd,format=raw -nic user,model=open_eth,hostfwd=tcp::80-:80 -s
