@@ -1,3 +1,5 @@
+image: mluis/qemu-esp32
+
 stages:
     - test
 
