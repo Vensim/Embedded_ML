@@ -2,6 +2,8 @@ stages:
     - test
 
 test:
+    tags:
+        - emulator
     stage: test
     script:
         - echo "Success!"
