@@ -1,5 +1,8 @@
 image: mluis/qemu-esp32
 
+before_script:
+    - git clone https://gitlab.com/Sesven/Embedded_ML.git
+
 stages:
     - test
     - run
@@ -9,6 +12,8 @@ test:
         - emulator
     stage: test
     script:
+        - cd Embedded_ML
+        - ls
         - echo "Success!"
 
 run:
