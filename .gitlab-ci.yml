@@ -23,6 +23,7 @@ run:
         - test
     stage: run
     script:
+        - git clone https://gitlab.com/Sesven/Embedded_ML.git
         - echo "Compiling esp32 binary"
         - cd ~/esp/esp-idf
         - chmod +x export.sh
