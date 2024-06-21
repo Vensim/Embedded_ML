@@ -1,4 +1,4 @@
-# Embedded ML for ECG applications
+# Embedded ML for ECG applications - Being updated again as of 21/06/24
 [![pipeline status](https://gitlab.com/Sesven/Embedded_ML/badges/main/pipeline.svg)](https://gitlab.com/Sesven/Embedded_ML/-/commits/main)
 ## Introduction
 
